@@ -10,25 +10,21 @@ const PRIME_NUMBER:u64 = 600_851_475_143;
 const SQRT_PRIME_NUMBER: u64 = 775_146;
 
 pub fn problem_3() {
-    let mut factors: Vec<u64> = Vec::new();
-
     let mut prime = PRIME_NUMBER;
     let mut divisor = 3;
 
-    while divisor < SQRT_PRIME_NUMBER && prime >= divisor {
-        if prime % divisor == 0 {
-            factors.push(divisor);
-
+    while divisor < SQRT_PRIME_NUMBER {
+        // println!("Prime: {prime}, Divisor: {divisor}");
+        if prime == divisor {
+            println!("biggest prime: {prime}");
+            break;
+        }
+        else if prime % divisor == 0 {
             prime = prime / divisor;
-            divisor = 3;
         }
         else {
             divisor += 2;
         }
-    }
-
-    if let Some(biggus_factor) = factors.iter().max() {
-        println!("{biggus_factor}");
     }
 }
 
