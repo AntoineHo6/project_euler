@@ -15,10 +15,10 @@ pub fn problem_3() {
     let mut prime = PRIME_NUMBER;
     let mut divisor = 3;
 
-    while divisor < SQRT_PRIME_NUMBER {
+    while divisor < SQRT_PRIME_NUMBER && prime >= divisor {
         if prime % divisor == 0 {
             factors.push(divisor);
-            
+
             prime = prime / divisor;
             divisor = 3;
         }
